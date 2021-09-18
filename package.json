@@ -53,7 +53,7 @@
     ]
   },
   "name": "image-editor",
-  "repository": "https://github.com/raichuAK/imageEditor",
+  "repository": "https://github.com/raichuAK/grocery",
   "scripts": {
     "format": "prettier --check \"**/*.{css,js,json,md,ts,yml,yaml}\"",
     "format:fix": "prettier --write \"**/*.{css,js,json,md,ts,yml,yaml}\"",
