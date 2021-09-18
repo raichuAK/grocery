@@ -12,20 +12,6 @@ export function findAllInShadowRoot(
   return rootElement.shadowRoot?.querySelectorAll(selector)!;
 }
 
-type callback = (...args: Params) => any;
-
-export function debounce<Params extends any[]>(func: callback, delay = 0) {
-  let timeoutId: ReturnType<typeof setTimeout>;
-
-  return (...args: Params) => {
-    clearTimeout(timeoutId);
-
-    timeoutId = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
-}
-
 export function addToHistory(state: unknown, urlPath: string) {
   history.pushState(state, '', urlPath);
 }

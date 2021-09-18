@@ -1,5 +1,5 @@
 {
-  "description": "Search for dogs",
+  "description": "Search for grocery",
   "devDependencies": {
     "eslint": "^7.29.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -52,7 +52,7 @@
       "prettier --write"
     ]
   },
-  "name": "image-editor",
+  "name": "grocery",
   "repository": "https://github.com/raichuAK/grocery",
   "scripts": {
     "format": "prettier --check \"**/*.{css,js,json,md,ts,yml,yaml}\"",
