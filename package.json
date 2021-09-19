@@ -1,19 +1,27 @@
 {
   "description": "Search for grocery",
   "devDependencies": {
-    "eslint": "^7.29.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "@types/jest": "^25.1.2",
+    "@babel/preset-env": "^7.15.6",
+    "@open-wc/testing": "^2.5.33",
+    "@open-wc/testing-helpers": "^1.8.12",
+    "@playwright/test": "^1.14.1",
+    "@testing-library/dom": "^8.5.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^25.2.3",
     "@types/webpack-env": "^1.15.1",
+    "@web/test-runner": "^0.13.17",
     "@webpack-cli/serve": "^1.5.2",
     "autoprefixer": "^9.7.4",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb": "^18.2.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^4.2.3",
-    "jest": "^25.1.0",
+    "jest": "^25.5.4",
     "lint-staged": "^10.0.7",
     "npm-run-all": "^4.1.5",
     "postcss-loader": "^3.0.0",
@@ -23,15 +31,15 @@
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
-    "ts-jest": "^25.2.1",
+    "testing-library__dom": "^7.29.4-beta.1",
+    "ts-jest": "^25.5.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.5",
     "webpack": "^4.41.6",
     "webpack-cli": "^4.3.0",
     "webpack-dev-server": "^4.0.0"
   },
-  "engines": {
-  },
+  "engines": {},
   "files": [
     "src"
   ],
@@ -66,11 +74,13 @@
     "lint:ts": "eslint --resolve-plugins-relative-to \"./node_modules/eslint-config-airbnb\" \"**/*.ts\"",
     "lint:ts:fix": "eslint --fix --resolve-plugins-relative-to \"./node_modules/eslint-config-airbnb\" \"**/*.ts\"",
     "start": "webpack-dev-server --config ./webpack.config.js",
-    "test": "jest",
-    "types": "tsc --noEmit"
+    "test": "web-test-runner test/*.test.ts --node-resolve",
+    "types": "tsc --noEmit",
+    "test:watch": "web-test-runner test/*.test.ts --node-resolve --watch"
   },
   "version": "1.0.0",
   "dependencies": {
+    "@web/dev-server-esbuild": "^0.2.14",
     "lit-element": "^2.5.1",
     "lit-html": "^1.4.1"
   }

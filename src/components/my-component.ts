@@ -1,8 +1,8 @@
 import { css, CSSResult, html, LitElement } from 'lit-element';
 import { repeat } from 'lit-html/directives/repeat';
-import * as Util from './utility';
-import { searchGrocery } from './search-service';
-import { DisplayMixin } from './DisplayMixin';
+import * as Util from '../service/utility';
+import { searchGrocery } from '../service/search-service';
+import { DisplayMixin } from '../service/DisplayMixin';
 
 export class View extends DisplayMixin(LitElement) {
   searchedGroceryList: Array<Grocery> = [];
@@ -95,8 +95,7 @@ export class View extends DisplayMixin(LitElement) {
   async keyupHandler(event: KeyboardEvent) {
     const { key } = event;
     if (key.toUpperCase() === Util.BACKSPACE_NAME) {
-      const searchVal = this.getSearchInputValue();
-      const searchQuery = `${searchVal}`;
+      const searchQuery = this.getSearchInputValue();
       this.searchInputAction(searchQuery);
     }
   }
@@ -109,7 +108,7 @@ export class View extends DisplayMixin(LitElement) {
   }
 
   async performSearch(searchQuery: string) {
-    if (Util.ALPHABET_REGEX.test(searchQuery)) {
+    if (searchQuery && Util.ALPHABET_REGEX.test(searchQuery)) {
       const groceryList: Array<Grocery> = await searchGrocery(searchQuery);
       this.renderResult(groceryList);
     } else {
